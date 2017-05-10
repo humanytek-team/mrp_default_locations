@@ -27,6 +27,6 @@
         'mrp',
     ],
     'data': [
-        'views/mrp_bom_form_view.xml',
+        'views/mpr_default_locations_settings.xml',
     ]
 }
