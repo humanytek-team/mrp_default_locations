@@ -19,3 +19,4 @@
 ##############################################################################
 
 from . import mrp_production
+from . import mrp_default_locations_settings

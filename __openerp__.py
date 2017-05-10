@@ -20,13 +20,13 @@
 
 {
     'name': 'MRP Default Locations',
-    'version': '0.1',
+    'version': '8.0.0.1',
     'author': 'Humanytek',
     'website': 'http://humanytek.com',
     'depends': [
         'mrp',
     ],
     'data': [
-        'views/mpr_default_locations_settings.xml',
+        'views/mrp_default_locations_settings.xml',
     ]
 }
