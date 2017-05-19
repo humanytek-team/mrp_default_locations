@@ -8,7 +8,7 @@ class MRPProduction(models.Model):
         return self.bom_id.location_src_id and self.bom_id.location_src_id.id or False
 
     def _dest_id_default(self):
-        return self.bom_id.location_src_id and self.bom_id.location_src_id.id or False
+        return self.bom_id.location_dest_id and self.bom_id.location_dest_id.id or False
 
     location_src_id = fields.Many2one(
         'stock.location',
