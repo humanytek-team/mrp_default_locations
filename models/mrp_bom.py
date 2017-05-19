@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from openerp import fields, models
 
 
 class MRPBOM(models.Model):
