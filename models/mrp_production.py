@@ -1,29 +1,11 @@
-from openerp import api, fields, models
+from openerp import models
 
 
 class MRPProduction(models.Model):
     _inherit = 'mrp.production'
 
-    def _src_id_default(self):
-        return self.bom_id.location_src_id and self.bom_id.location_src_id.id or False
-
-    def _dest_id_default(self):
-        return self.bom_id.location_dest_id and self.bom_id.location_dest_id.id or False
-
-    location_src_id = fields.Many2one(
-        'stock.location',
-        string='Raw Materials Location',
-        required=True,
-        readonly=True,
-        states={'draft': [('readonly', False)]},
-        help="Location where the system will look for components.",
-        default=_src_id_default)
-
-    location_dest_id = fields.Many2one(
-        'stock.location',
-        string='Raw Materials Location',
-        required=True,
-        readonly=True,
-        states={'draft': [('readonly', False)]},
-        help="Location where the system will look for components.",
-        default=_dest_id_default)
+    def _make_production_produce_line(self, cr, uid, production, context=None):
+        production.location_src_id = production.bom_id.location_src_id.id or production.product_id.property_stock_production.id
+        production.location_dest_id = production.bom_id.location_dest_id.id or production.location_dest_id.id
+        vals = super(MRPProduction, self)._make_production_produce_line(cr, uid, production, context)
+        return vals
