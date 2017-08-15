@@ -20,7 +20,7 @@
 
 {
     'name': 'MRP Default Locations',
-    'version': '8.0.1.2.1-b',
+    'version': '10.0.1',
     'author': 'Humanytek',
     'website': 'http://humanytek.com',
     'depends': [
