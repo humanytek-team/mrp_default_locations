@@ -19,8 +19,8 @@ class MRPProduction(models.Model):
     @api.model
     def _get_default_location_dest_id(self):
         location = False
-        if self.bom_id.location_src_id:
-            location = self.bom_id.location_src_id
+        if self.bom_id.location_dest_id:
+            location = self.bom_id.location_dest_id
         else:
             if self._context.get('default_picking_type_id'):
                 location = self.env['stock.picking.type'].browse(self.env.context['default_picking_type_id']).default_location_dest_id
